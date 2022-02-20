@@ -27,14 +27,20 @@ class Letter:
 class Word:
 
     WORDS = set(open("words_alpha.txt").read().split())
+    length = 5
+    letters = []
+    validWords = {""}
+
+    def __init__(self, word) -> None:
+        self.letters = [Letter(i) for i in word]
+        self.length = len(word)
+
+    def getRandomWord(length) -> str:
+        if len(Word.validWords) < 2:
+            Word.validWords = {w for w in Word.WORDS if len(w) == length}
+        return Word.validWords.pop()
+
+    def isWord(guess) -> bool:
+        return guess in Word.WORDS
+
     
-
-    def __init__(self) -> None:
-        pass
-
-
-    def getRandomWord(self):
-        result = Word.WORDS.pop()
-        Word.WORDS.add(result)
-        return result
-
