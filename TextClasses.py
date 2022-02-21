@@ -1,5 +1,3 @@
-from mimetypes import init
-from tokenize import String
 from Color import Color
 
 class Letter:
@@ -14,7 +12,7 @@ class Letter:
         return self.character
 
     def __str__(self) -> str:
-        pass    
+        return self.character + " (" + self.color.name + ")" 
 
     def markColor(self, word, pos, count = 1):
         if self.character in word:
